@@ -1,14 +1,16 @@
+import requests
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
-import requests
-from .models import Post, Contact, Comment
 
+from .models import Post, Contact, Comment
 
 BOT_TOKEN = '6787403849:AAE2piymBY7F-9DCRKbEK3kZoBx1paVSTog'
 CHAT_ID = '654348985'
 
+
 def home_view(request):
     posts = Post.objects.filter(is_published=True).order_by('-views_count')[:2]
+
     d = {
         'posts': posts,
         'home': 'active'
@@ -61,6 +63,10 @@ def blog_detail_view(request, pk):
         data = request.POST
         obj = Comment.objects.create(name=data['name'], email=data['email'], message=data['message'], post_id=pk)
         obj.save()
+        post = Post.objects.get(id=pk)
+        post.comments_count += 1
+        post.save(update_fields=['comments_count'])
+
         return redirect(f'/blog/{pk}')
 
     post = Post.objects.get(id=pk)

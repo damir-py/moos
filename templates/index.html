@@ -43,9 +43,9 @@
                     <div class="col-md-6">
                         <div class="text p-md-5 py-5 px-4 ftco-animate">
                             <p class="meta">
-                                <a href="#"><span class="fa fa-calendar mr-2"></span>{{ post.created_at }}</a>
+                                <a href="#"><span class="fa fa-calendar mr-2"></span>{{ post.cceated_at }}</a>
                                 <a href="#"><span class="fa fa-user mr-2"></span>Admin</a>
-                                <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> 3</a>
+                                <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> {{ post.comments_count }}</a>
                             </p>
                             <h2 class="mb-4"><a href="/blog/{{ post.id }}">{{ post.title }}</a></h2>
                             <div class="icon d-flex align-items-center">
@@ -69,7 +69,7 @@
                             <p class="meta">
                                 <a href="#"><span class="fa fa-calendar mr-2"></span>{{ post.created_at }}</a>
                                 <a href="#"><span class="fa fa-user mr-2"></span>Admin</a>
-                                <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> 3</a>
+                                <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> {{ post.comments_count }}</a>
                             </p>
                             <h2 class="mb-4"><a href="/blog/{{ post.id }}">{{ post.title }}</a></h2>
                             <div class="icon d-flex align-items-center">
