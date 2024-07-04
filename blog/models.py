@@ -15,7 +15,7 @@ class Category(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=120)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='posts/', blank=True, null=True)
+    image = models.ImageField(upload_to='posts/')
     description = RichTextField()
 
     author = models.CharField(max_length=50)
@@ -26,7 +26,6 @@ class Post(models.Model):
     views_count = models.IntegerField(default=0)
 
     comments_count = models.IntegerField(default=0)
-
 
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
@@ -57,7 +56,6 @@ class Comment(models.Model):
     message = models.TextField()
 
     is_published = models.BooleanField(default=True)
-
 
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
