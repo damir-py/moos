@@ -38,8 +38,6 @@ INSTALLED_APPS = [
 
     'blog',
     'ckeditor',
-    'storage',
-    'boto3'
 
 ]
 
